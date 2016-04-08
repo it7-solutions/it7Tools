@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>it7Utils</title>
+    <link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<div id="app-box"></div>
+<div id="app-out-input"></div>
+<script src="../it7Utils.js"></script>
+<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
+<script>
+    (function () {
+        QUnit.test("formatMoney test", function (assert) {
+            assert.strictEqual(it7Utils.formatMoney(0), "0.00", "Zero");
+            assert.strictEqual(it7Utils.formatMoney(5), "5.00", "Short integer");
+            assert.strictEqual(it7Utils.formatMoney(5568521), "5'568'521.00", "Long integer");
+            assert.strictEqual(it7Utils.formatMoney(5.13), "5.13", "Short float");
+            assert.strictEqual(it7Utils.formatMoney(6549871.13), "6'549'871.13", "Long float");
+            assert.strictEqual(it7Utils.formatMoney(5.137), "5.14", "Round float");
+            assert.strictEqual(it7Utils.formatMoney(-6549871.13), "-6'549'871.13", "Negative long float");
+        });
+    })();
+</script>
+</body>
+</html>
