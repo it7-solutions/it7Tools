@@ -1,7 +1,7 @@
 ;(function(){
     var it7Utils = function(){};
 
-    it7Utils.version = '1.0.0';
+    it7Utils.version = '1.1.0';
 
     /**
      *
@@ -28,6 +28,12 @@
         o += is.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t);
         o += (c ? d + n.toFixed(c).slice(0-c) : "");
         return o;
+    };
+    
+    it7Utils.formatPrice = function(price, isCent) {
+        isCent === undefined && (isCent = true);
+        var m = isCent ? price / 100 : price;
+        return it7Utils.formatMoney(m);
     };
 
     window.it7Utils = it7Utils;
